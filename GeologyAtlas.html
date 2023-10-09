@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Mineral Tracer</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="Atlas.css">
+    </head>
+    <body>
+        <header>
+            <div class="logo-container">
+              <a href="HomePg.html">
+                <img src="HomeIcon.png">
+              </a>
+            </div>
+            <div class="heading">
+              <h1>Geology Atlas</h1>
+            </div>
+            <nav>
+              <ul>
+                <li><a href="MineralTracer.html">Mineral Tracer</a></li>
+                <li><a href="DisasterShield.html">Disaster Shield</a></li>
+              </ul>
+            </nav>
+        </header>
+        
+        <div class="container">
+            <p id="question"></p>
+            <div class="options">
+                <div class="option" onclick="checkAnswer(this)">Option 1</div>
+                <div class="option" onclick="checkAnswer(this)">Option 2</div>
+                <div class="option" onclick="checkAnswer(this)">Option 3</div>
+                <div class="option" onclick="checkAnswer(this)">Option 4</div>
+            </div>
+            <p id="feedback"></p>
+            <p id="score"></p>
+            <button onclick="nextQuestion()">Next Question</button>
+        </div>
+    
+        <script>
+            const questions = [
+                {
+                    question: "What is the hardest known natural material on Earth?",
+                    options: ["Diamond", "Quartz", "Topaz", "Talc"],
+                    correctAnswer: "Diamond"
+                },
+                {
+                    question: "Which type of rock is formed from the cooling and solidification of molten lava?",
+                    options: ["Sedimentary", "Metamorphic", "Igneous", "Volcanic"],
+                    correctAnswer: "Igneous"
+                },
+                {
+                    question: "What is the process of breaking down rocks into smaller pieces through physical and chemical means called?",
+                    options: ["Weathering", "Erosion", "Deposition", "Compaction"],
+                    correctAnswer: "Weathering"
+                },
+                {
+                    question: "What type of plate boundary is primarily associated with the formation of mountain ranges like the Himalayas?",
+                    options: ["Convergent boundary", "Divergent boundary", "Transform boundary", "Passive boundary"],
+                    correctAnswer: "Convergent boundary"
+                },
+                {
+                    question: "Which of the following minerals is commonly found in both granite and rhyolite?",
+                    options: ["Quartz", "Feldspar", "Mica", "Calcite"],
+                    correctAnswer: "Quartz"
+                },
+                {
+                    question: "What is the geological term for a circular depression at the summit of a volcano, typically formed by a volcanic eruption?",
+                    options: ["Caldera", "Crater", "Abyssal plain", "Fumarole"],
+                    correctAnswer: "Caldera"
+                },
+                {
+                    question: "Which of the following processes is responsible for the formation of sedimentary rocks like sandstone?",
+                    options: ["Crystallization from magma", "Metamorphism of existing rocks", "Compaction and cementation of sediments", "Weathering of igneous rocks"],
+                    correctAnswer: "Compaction and cementation of sediments"
+                },
+                {
+                    question: "The process by which rocks are broken down into smaller pieces through physical disintegration and chemical decomposition is known as:",
+                    options: ["Erosion", "Deposition", "Weathering", "Lithification"],
+                    correctAnswer: "Weathering"
+                },
+                {
+                    question: "Which mineral is the primary constituent of limestone?",
+                    options: ["Quartz", "Calcite", "Feldspar", "Gypsum"],
+                    correctAnswer: "Calcite"
+                },
+                {
+                    question: "What type of fault is characterized by the hanging wall moving downward relative to the footwall?",
+                    options: ["Normal fault", "Reverse fault", "Strike-slip fault", "Thrust fault"],
+                    correctAnswer: "Normal fault"
+                },
+                {
+                    question: "The Mohs scale is used to measure the:",
+                    options: ["Hardness of minerals", "Color of minerals", "Density of minerals", "Cleavage of minerals"],
+                    correctAnswer: "Hardness of minerals"
+                },
+                {
+                    question: "Which of the following is NOT a type of volcanic rock?",
+                    options: ["Basalt", "Pumice", "Schist", "Obsidian"],
+                    correctAnswer: "Schist"
+                },
+                {
+                    question: "What is the term for the process by which sedimentary rocks become compacted and hardened into solid rock?",
+                    options: ["Erosion", "Metamorphism", "Lithification", "Weathering"],
+                    correctAnswer: "Lithification"
+                },
+                {
+                    question: "Which of the following is an example of a foliated metamorphic rock?",
+                    options: ["Marble", "Slate", "Sandstone", "Basalt"],
+                    correctAnswer: "Slate"
+                },
+                {
+                    question: "Which geological era is known as the 'Age of Reptiles' when dinosaurs were dominant?",
+                    options: ["Paleozoic", "Mesozoic", "Cenozoic", "Neozoic"],
+                    correctAnswer: "Mesozoic"
+                },
+            ];
+    
+            let currentQuestionIndex = 0;
+            let score = 0;
+    
+            function displayQuestion() {
+                const questionElement = document.getElementById("question");
+                const optionsElements = document.querySelectorAll(".option");
+    
+                if (currentQuestionIndex < questions.length) {
+                    const currentQuestion = questions[currentQuestionIndex];
+    
+                    questionElement.textContent = currentQuestion.question;
+    
+                    currentQuestion.options.forEach((option, index) => {
+                        optionsElements[index].textContent = option;
+                        optionsElements[index].classList.remove("correct");
+                        optionsElements[index].classList.remove("incorrect");
+                    });
+                } else {
+                    questionElement.textContent = "Quiz completed!";
+                    optionsElements.forEach(option => option.style.display = "none");
+                    document.getElementById("feedback").textContent = "";
+                    document.querySelector("button").style.display = "none";
+                }
+            }
+    
+            function checkAnswer(selectedOption) {
+                const selectedText = selectedOption.textContent;
+                const currentQuestion = questions[currentQuestionIndex];
+    
+                if (selectedText === currentQuestion.correctAnswer) {
+                    selectedOption.classList.add("correct");
+                    score = score + 1;
+                    document.getElementById("feedback").textContent = "Correct!";
+                    document.getElementById("score").textContent = "Score: " + score;
+                } else {
+                    selectedOption.classList.add("incorrect");
+                    document.getElementById("feedback").textContent = "Incorrect. The correct answer is: " + currentQuestion.correctAnswer;
+                    document.getElementById("score").textContent = "Score: " + score;
+                }
+    
+                const optionsElements = document.querySelectorAll(".option");
+                optionsElements.forEach(option => {
+                    if (option.textContent === currentQuestion.correctAnswer) {
+                        option.classList.add("correct");
+                    }
+                    option.style.pointerEvents = "none";
+                });
+            }
+    
+            function nextQuestion() {
+                const optionsElements = document.querySelectorAll(".option");
+                optionsElements.forEach(option => option.style.pointerEvents = "auto");
+    
+                currentQuestionIndex++;
+    
+                setTimeout(() => {
+                    displayQuestion();
+                    document.getElementById("feedback").textContent = "";
+                }, 1000);
+            }
+    
+            displayQuestion();
+        </script>
+
+        <!--<main>
+            <section id="section1">
+                <div class="geology-atlas">
+                    <img src="TemperatureMap.jpeg">
+                </div>
+                <div class="caption-container">
+                    <h2>How to Play Geology Atlas</h2>
+                    <p>The display for the geology atlas will show up on the left</p>
+                </div>
+            </section>
+        </main>-->
+    </body>
+</html>

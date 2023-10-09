@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Mineral Tracer</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="Mineral.css">
+    </head>
+    <body>
+        <header>
+            <div class="logo-container">
+              <a href="HomePg.html">
+                <img src="HomeIcon.png">
+              </a>
+            </div>
+            <div class="heading">
+              <h1>Mineral Tracer</h1>
+            </div>
+            <nav>
+              <ul>
+                <li><a href="GeologyAtlas.html">Geology Atlas</a></li>
+                <li><a href="DisasterShield.html">Disaster Shield</a></li>
+              </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <section id="section1">
+                <h2>Information About Different Minerals</h2>
+
+                <div class="mineral-finder">
+                    <label for="mineralLabel">Enter the mineral's name:</label>
+                    <input type="text" id="mineralInput">
+                    <button onclick="searchMineral()">Enter</button>
+                </div>
+
+                <script type="text/javascript">
+                    function searchMineral() {
+                        const userInput = document.getElementById("mineralInput").value
+                        if (userInput === "Quartz") {
+                            document.getElementById("mineralDisplay").textContent = "Location: Every mineral environment"
+                            document.getElementById("mineralDisplay2").textContent = "Chemical Formula: SiO2"
+                            document.getElementById("mineralDisplay3").textContent = "Composition: Silicon Dioxide"
+                            document.getElementById("mineralDisplay4").textContent = "Color: Colorless"
+                            document.getElementById("mineralDisplay5").textContent = "Streak: White"
+                            document.getElementById("mineralDisplay6").textContent = "Hardness: 7"
+                            document.getElementById("mineralDisplay6").textContent = "Crystal System/Shape: Hexagonal"
+                        }
+                        else if (userInput === "Magnesite") {
+                            document.getElementById("mineralDisplay").textContent = "Location: Most commonly found in Brumado and Brazil"
+                            document.getElementById("mineralDisplay2").textContent = "Chemical Formula: MgCO3"
+                            document.getElementById("mineralDisplay3").textContent = "Composition: Magnesium carbonate, commonly with some iron and calcium"
+                            document.getElementById("mineralDisplay4").textContent = "Color: Colorless, white, gray, yellow, brown, orange, light pink, light green"
+                            document.getElementById("mineralDisplay5").textContent = "Streak: White"
+                            document.getElementById("mineralDisplay6").textContent = "Hardness: 3.5 - 4.5"
+                            document.getElementById("mineralDisplay6").textContent = "Crystal System/Shape: Hexagonal"
+                        }
+                        else if (userInput === "Elbaite") {
+                            document.getElementById("mineralDisplay").textContent = "Location: Most commonly found in Brazil, Sri Lanka, Madagascar, Mozambique, Afghanistan, Tanzania, Russia, Malawi, Nigeria, Namibia, Zambia, and the U.S."
+                            document.getElementById("mineralDisplay2").textContent = "Chemical Formula: Na(Li,Al)3 Al6 (BO3)3 Si6 O18(OH)4"
+                            document.getElementById("mineralDisplay3").textContent = "Composition: Basic sodium lithium aluminum boro-silicate"
+                            document.getElementById("mineralDisplay4").textContent = "Color: Elbaite is one of the most varied minerals in terms of color. Colors include green, red, pink and blue. White, colorless, black, brown, yellow, orange, and purple colors are less common. Crystals are frequently multicolored, containing two or more distinct colors. Some specimens are pleochroic."
+                            document.getElementById("mineralDisplay5").textContent = "Streak: White"
+                            document.getElementById("mineralDisplay6").textContent = "Hardness: 7.0 - 7.5"
+                            document.getElementById("mineralDisplay6").textContent = "Crystal System/Shape: Hexagonal"
+                        }
+                        else if (userInput === "Leucite") {
+                            document.getElementById("mineralDisplay").textContent = "Location: Low-silica environments where little Quartz is found"
+                            document.getElementById("mineralDisplay2").textContent = "Chemical Formula: KAlSi2O6"
+                            document.getElementById("mineralDisplay3").textContent = "Composition: Potassium aluminum silicate"
+                            document.getElementById("mineralDisplay4").textContent = "Color: White to gray, sometimes with a yellow or brown tinge. Rarely colorless."
+                            document.getElementById("mineralDisplay5").textContent = "Streak: White"
+                            document.getElementById("mineralDisplay6").textContent = "Hardness: 5.5 - 6"
+                            document.getElementById("mineralDisplay6").textContent = "Crystal System/Shape: Tetragonal"
+                        }
+                        else if (userInput === "Citrine") {
+                            document.getElementById("mineralDisplay").textContent = "Location: Most commonly found in Bolivia, Madagascar, Mexico, Spain and Uruguay"
+                            document.getElementById("mineralDisplay2").textContent = "Chemical Formula: SiO2"
+                            document.getElementById("mineralDisplay3").textContent = "Composition: Silicon Dioxide"
+                            document.getElementById("mineralDisplay4").textContent = "Color: Yellow, yellow-brown, orange, dark orange-brown, reddish-brown"
+                            document.getElementById("mineralDisplay5").textContent = "Streak: White"
+                            document.getElementById("mineralDisplay6").textContent = "Hardness: 7"
+                            document.getElementById("mineralDisplay6").textContent = "Crystal System/Shape: Hexagonal"
+                        }
+                        else {
+                            document.getElementById("mineralDisplay").textContent = "Please enter a valid entry with only the first letter of the mineral's name in caps"
+                        }
+                    }
+                </script>
+
+                <p id="mineralDisplay">Information about each mineral from the search program above will be displayed here.</p>
+                <p id="mineralDisplay2"></p>
+                <p id="mineralDisplay3"></p>
+                <p id="mineralDisplay4"></p>
+                <p id="mineralDisplay5"></p>
+                <p id="mineralDisplay6"></p>
+                <p id="mineralDisplay7"></p>
+            </section>
+        </main>
+    </body>
+</html>

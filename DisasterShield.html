@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Mineral Tracer</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="DisasterShield.css">
+    </head>
+    <body>
+        <header>
+            <div class="logo-container">
+              <a href="HomePg.html">
+                <img src="HomeIcon.png">
+              </a>
+            </div>
+            <div class="heading">
+              <h1>Disaster Shield</h1>
+            </div>
+            <nav>
+              <ul>
+                <li><a href="MineralTracer.html">Mineral Tracer</a></li>
+                <li><a href="GeologyAtlas.html">Geology Atlas</a></li>
+              </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <section id="section1">
+                <h2>Enter A Natural Disaster That You Want To Track Below</h2>
+
+                <div class="disaster-alert">
+                    <label for="mineralLabel">Enter a natural disater:</label>
+                    <input type="text" id="disasterInput">
+                    <button onclick="showDisaster()">Enter</button>
+                </div>
+
+                <script type="text/javascript">
+                    function showDisaster() {
+                        const disasterInput = document.getElementById("disasterInput").value.trim()
+                        var img = document.createElement("img");
+                        var container = document.getElementById("image-container");
+                        if (disasterInput === "Hurricane") {
+                            img.src = "Hurricane.png";
+                            container.appendChild(img);
+                        }
+                        else if (disasterInput === "Wildfire") {
+                            img.src = "fire.png";
+                            container.appendChild(img);
+                        }
+                        else if (disasterInput === "Earthquake") {
+                            img.src = "earthquake.png";
+                            container.appendChild(img);
+                        }
+                        else {
+                            document.getElementById("disasterMap").textContent = "Please enter a valid entry with only the first letter of the disaster's name in caps"
+                        }
+                    }
+                </script>
+
+                <p>A map of the natural disaster is going to displayed below</p>
+
+                <div id="image-container">
+                    <p id="disasterMap"></p>
+                    <p id="image-container"></p>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

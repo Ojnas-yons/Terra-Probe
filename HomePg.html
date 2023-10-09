@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Terra Probe</title>
+  <link rel="stylesheet" type="text/css" href="HomePg.css">
+  <script src="HomePg.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('a[href^="#"]').on('click', function (event) {
+        var target = $(this.getAttribute('href'));
+        if (target.length) {
+          event.preventDefault();
+          $('html, body').stop().animate({
+            scrollTop: target.offset().top
+          }, 1000);
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="heading">
+      <h1>Terra Probe</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="MineralTracer.html">Mineral Tracer</a></li>
+        <li><a href="GeologyAtlas.html">Geology Atlas</a></li>
+        <li><a href="DisasterShield.html">Disaster Shield</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <section id="section1">
+      <div class="image-container">
+        <img src="Homepgimg.webp">
+      </div>
+      <div class="caption-container">
+        <h2>Our Purpose</h2>
+        <p>The purpose of our app is to revolutionize geological research and fieldwork by providing geologists with the unprecedented ability to conduct their investigations and analyses from the comfort of their couches, using the vast repository of NASA Earth observation data. By harnessing satellite imagery, remote sensing data, and geospatial information, our app empowers geologists to explore and study geological features, analyze terrain changes, and monitor environmental phenomena with exceptional precision and convenience. This innovative tool not only enhances the efficiency and scope of geological research but also contributes to a deeper understanding of our planet's dynamic processes, ultimately aiding in better-informed decision-making for environmental conservation and resource management.</p>
+        <a href="#vision-statement">Our Vision</a>
+      </div>
+    </section>
+    <section id="section2">
+      <div class="image-container">
+        <img src="TemperatureMap.jpeg">
+      </div>
+      <div class="caption-container" id="vision-statement">
+        <h2>Our Vision</h2>
+        <p>Our vision is to revolutionize the field of geology by harnessing the power of NASA Earth observation data through our innovative app. We aspire to empower geologists worldwide to conduct groundbreaking research and fieldwork from the comfort of their couches, unlocking a new era of accessibility and efficiency in geological exploration. By seamlessly integrating NASA's wealth of satellite and Earth imaging data, our app will provide geologists with unprecedented insights into our planet's geological processes, enabling them to make informed discoveries, monitor environmental changes, and contribute to the global understanding of Earth's dynamic geology. Together, we aim to bridge the gap between remote sensing technology and geological research, fostering collaboration, and accelerating scientific advancements that will benefit both the scientific community and the world at large.</p>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
